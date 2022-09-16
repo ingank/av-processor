@@ -73,7 +73,6 @@ GOTO LOOP_PLV
 
 :ONESHOTFLAC
 mkdir "DOWNLOADS" 2>nul
-mkdir "DOWNLOADS" 2>nul
 echo Die Audiospur eines Einzelvideos wird heruntergeladen und in einer .flac Datei gespeichert. Playlisten werden ignoriert.
 echo.
 :LOOP_OSF
