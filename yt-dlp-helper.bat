@@ -8,16 +8,19 @@ echo =============
 echo.
 echo YouTube Downloder (Plus) Helferlein.
 echo.
-echo Dieses Batch-Script unterstuetzt dich beim Herunterladen von YouTube-Videos.
-echo Im gleichen Verzeichnis muss sich das Programm yt-dlp.exe befinden.
+echo Dieses Batch-Script unterstuetzt dich beim Herunterladen
+echo und Konvertieren von YouTube-Videos. Im gleichen Verzeichnis
+echo muessen sich die Programme ^"yt-dlp.exe^" und ^"ffmpeg.exe^" befinden.
 echo Die heruntergeladenen Dateien werden im Ordner ^"DOWNLOADS^" gespeichert.
+echo Konvertierte Dateien des Formats MP3 landen im Ordner ^"MP3S^".
 echo.
-echo In welchem Modus sollen die Videos heruntergeladen werden?
+echo Bitte triff deine Wahl:
 echo.
-echo 1 - Einzelvideo (Keine Playlist)
-echo 2 - Alle Videos einer Playlist
+echo 1 - Einzelvideo (Keine Playlist) herunterladen
+echo 2 - Alle Videos einer Playlist herunterladen
 echo 3 - Audio eines Einzelvideos in eine .flac Datei schreiben
 echo 4 - Audio der Videos einer Playlist als .flac Dateien schreiben
+echo 5 - Alle .flac Dateien im Ordner ^"DOWNLOADS^" in MP3 wandeln
 echo e - Script beenden
 echo.
 set /p choice="Deine Wahl: "
@@ -31,7 +34,8 @@ GOTO START
 
 :ONESHOTVIDEO
 mkdir "DOWNLOADS" 2>nul
-echo Die Videos werden als Einzelvideo heruntergeladen. Playlisten werden ignoriert.
+echo Die Videos werden als Einzelvideo heruntergeladen.
+echo Playlisten werden ignoriert.
 echo.
 :LOOP_OSV
 echo.
@@ -52,7 +56,8 @@ GOTO LOOP_OSV
 
 :PLAYLISTVIDEOS
 mkdir "DOWNLOADS" 2>nul
-echo Der Link wird als Playlist behandelt. Alle Videos der Playlist werden heruntergeladen.
+echo Der Link wird als Playlist behandelt.
+echo Alle Videos der Playlist werden heruntergeladen.
 echo.
 :LOOP_PLV
 echo.
@@ -73,7 +78,8 @@ GOTO LOOP_PLV
 
 :ONESHOTFLAC
 mkdir "DOWNLOADS" 2>nul
-echo Die Audiospur eines Einzelvideos wird heruntergeladen und in einer .flac Datei gespeichert. Playlisten werden ignoriert.
+echo Die Audiospur eines Einzelvideos wird heruntergeladen
+echo und in einer .flac Datei gespeichert. Playlisten werden ignoriert.
 echo.
 :LOOP_OSF
 echo.
@@ -95,7 +101,8 @@ GOTO LOOP_OSF
 
 :PLAYLISTFLAC
 mkdir "DOWNLOADS" 2>nul
-echo Der Link wird als Playlist behandelt. Von allen Videos der Playlist werden die Audiospuren in .flac Dateien gespeichert.
+echo Der Link wird als Playlist behandelt. Von allen Videos der Playlist
+echo werden die Audiospuren in .flac Dateien gespeichert.
 echo.
 :LOOP_PLF
 echo.
@@ -114,5 +121,9 @@ echo.
 echo.
 echo.
 GOTO LOOP_PLF
+
+:COVERTMP3
+mkdir "MP3S" 2>nul
+for %%f in (.\DOWNLOADS\*.flac) do (  ffmpeg -i "%%f" -ab 320k ".\MP3S\%%f.mp3" )
 
 :END
