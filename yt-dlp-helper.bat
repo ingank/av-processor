@@ -29,6 +29,7 @@ if "%choice%" EQU "1" GOTO ONESHOTVIDEO
 if "%choice%" EQU "2" GOTO PLAYLISTVIDEOS
 if "%choice%" EQU "3" GOTO ONESHOTFLAC
 if "%choice%" EQU "4" GOTO PLAYLISTFLAC
+if "%choice%" EQU "5" GOTO CONVERTMP3
 if "%choice%" EQU "e" GOTO END
 GOTO START
 
@@ -122,8 +123,10 @@ echo.
 echo.
 GOTO LOOP_PLF
 
-:COVERTMP3
+:CONVERTMP3
 mkdir "MP3S" 2>nul
-for %%f in (.\DOWNLOADS\*.flac) do (  ffmpeg -i "%%f" -ab 320k ".\MP3S\%%f.mp3" )
+cd DOWNLOADS
+for %%f in ("*.flac") do (  .\..\ffmpeg -i "%%f" -ab 320k ".\..\MP3S\%%~nf.mp3" )
+cd ..
 
 :END
