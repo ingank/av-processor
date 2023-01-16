@@ -1,5 +1,6 @@
-# yt-dlp-helper
-Hot batchprocessing for the incredible **yt-dlp**.
+# av-processor
+- Hot batchprocessing for the incredible **yt-dlp**.
+- Little Transcoder for audio/video files.
 
 ## useful links
 The right place to download yt-dlp.exe:  
