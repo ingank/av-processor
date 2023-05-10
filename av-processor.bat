@@ -16,8 +16,6 @@ echo ============
 echo AV-PROCESSOR
 echo ============
 echo.
-echo Bitte triff deine Wahl:
-echo.
 echo 1 - Einzelvideo herunterladen
 echo 2 - Alle Videos einer Playlist herunterladen
 echo 3 - Audio eines Einzelvideos als .flac Datei herunterladen
