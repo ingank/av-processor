@@ -40,7 +40,8 @@ echo EINZELVIDEO HERUNTERLADEN
 echo =========================
 echo.
 echo Der Link wird als Einzelvideo behandelt.
-echo Playlisten werden ignoriert. Nur ein Video wird heruntergeladen.
+echo Playlisten werden ignoriert.
+echo Nur ein Video wird heruntergeladen.
 echo.
 echo Durch Eingabe von ^"e^" kommst du zurueck ins Hauptmenue.
 echo.
